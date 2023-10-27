@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exibir/Ocultar</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head> 
+<body>
+    <h1>Exibir/Ocultar</h1>
+    <button id="showElement">Exibir</button>
+    <button id="hideElement">Ocultar</button>
+    <p id="elementToToggle">Lorem ipsum dolor sit ametigendi beatae.</p>
+
+    <script>
+        $(document).ready(function() {
+            $("#showElement").click(function() {
+                $("#elementToToggle").show();
+            });
+
+            $("#hideElement").click(function() {
+                $("#elementToToggle").hide();
+            });
+        });
+    </script>
+</body>
+</html>

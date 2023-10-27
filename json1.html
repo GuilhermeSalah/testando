@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista</title>
+</head>
+<body>
+    <h1>Lista de Atividades Diárias</h1>
+    
+    <ul id="lista-tarefas">
+    </ul>
+
+    <input type="text" id="nova-tarefa" placeholder="Adicionar uma nova tarefa">
+    <button id="adicionar-tarefa">Adicionar</button>
+
+    <script>
+        
+        var tarefas = [];
+
+        function adicionarTarefa() {
+            var novaTarefa = document.getElementById("nova-tarefa").value;
+            if (novaTarefa !== "") {
+                tarefas.push({ texto: novaTarefa });
+                atualizarListaTarefas();
+                document.getElementById("nova-tarefa").value = "";
+            }
+        }
+
+        function atualizarListaTarefas() {
+            var listaTarefas = document.getElementById("lista-tarefas");
+            listaTarefas.innerHTML = "";
+
+            for (var i = 0; i < tarefas.length; i++) {
+                var item = document.createElement("li");
+                item.textContent = tarefas[i].texto;
+                listaTarefas.appendChild(item);
+            }
+        }
+
+        document.getElementById("adicionar-tarefa").addEventListener("click", adicionarTarefa);
+
+        var dadosIniciais = '[{"texto": "Lavar a louça"}, {"texto": "Estudar para à prova"}, {"texto": "Arrumar o Quarto"}]';
+        tarefas = JSON.parse(dadosIniciais);
+        atualizarListaTarefas();
+    </script>
+</body>
+</html>
